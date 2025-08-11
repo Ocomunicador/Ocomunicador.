@@ -1,0 +1,226 @@
+<iframe frameborder="0" class="html-view" sandbox="allow-scripts allow-forms" style="width: 1536px; height: 864px; border: none; overflow: auto;" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Comportamentos e Indicações&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        :root {
+            --primary-dark: #00424a;
+            --primary-light: #edfcff;
+            --secondary-dark: #273f43;
+            --secondary-light: #dbf6fa;
+            --tertiary-dark: #2f3b58;
+            --tertiary-light: #bac6ea;
+            --background-color: #cde7ec;
+            --error-color: #de3730;
+            --neutral-dark: #393c3d;
+            --neutral-light: #f8fafa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* A common modern sans-serif font */
+            background-color: var(--background-color);
+            color: var(--neutral-dark);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .accordion-item {
+            background-color: var(--primary-light);
+            border-radius: 0.75rem; /* rounded-xl */
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background-color: var(--primary-dark);
+            color: var(--primary-light);
+            font-weight: 600; /* font-semibold */
+            text-align: left;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+
+        .accordion-header:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .accordion-header.active {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .accordion-header svg {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active svg {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+            padding: 0 1.5rem;
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+        }
+
+        .accordion-content.open {
+            max-height: 500px; /* Adjust as needed, should be larger than max possible content */
+            padding: 1rem 1.5rem;
+        }
+
+        /* Tailwind overrides for specific elements */
+        .text-primary-dark { color: var(--primary-dark); }
+        .bg-primary-dark { background-color: var(--primary-dark); }
+        .text-primary-light { color: var(--primary-light); }
+        .bg-primary-light { background-color: var(--primary-light); }
+        .text-secondary-dark { color: var(--secondary-dark); }
+        .bg-secondary-dark { background-color: var(--secondary-dark); }
+        .text-secondary-light { color: var(--secondary-light); }
+        .bg-secondary-light { background-color: var(--secondary-light); }
+        .text-tertiary-dark { color: var(--tertiary-dark); }
+        .bg-tertiary-dark { background-color: var(--tertiary-dark); }
+        .text-tertiary-light { color: var(--tertiary-light); }
+        .bg-tertiary-light { background-color: var(--tertiary-light); }
+        .text-neutral-dark { color: var(--neutral-dark); }
+        .bg-neutral-dark { background-color: var(--neutral-dark); }
+        .text-neutral-light { color: var(--neutral-light); }
+        .bg-neutral-light { background-color: var(--neutral-light); }
+        .bg-background-color { background-color: var(--background-color); }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-background-color min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8&quot;&gt;
+    &lt;div class=&quot;container bg-primary-light rounded-2xl shadow-lg p-6 sm:p-8&quot;&gt;
+        &lt;h1 class=&quot;text-3xl sm:text-4xl font-extrabold text-center mb-6 text-primary-dark leading-tight&quot;&gt;
+            Comportamentos e o que eles podem indicar
+        &lt;/h1&gt;
+        &lt;p class=&quot;text-lg sm:text-xl text-center mb-8 text-neutral-dark leading-relaxed&quot;&gt;
+            Todo mundo tem jeitos de agir que entregam muito sobre o que já viveu. Vou listar aqui vários comportamentos e o que eles podem indicar sobre traumas, convivência ou traços de personalidade, de forma simples e direta.
+        &lt;/p&gt;
+
+        &lt;div id=&quot;accordion-container&quot; class=&quot;space-y-4&quot;&gt;
+            &lt;!-- Accordion items will be injected here by JavaScript --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const data = [
+            { behavior: &quot;Evita olhar nos olhos quando fala&quot;, explanation: &quot;Pode indicar timidez extrema, insegurança aprendida na infância, medo de confronto ou até experiências de humilhação.&quot; },
+            { behavior: &quot;Fala muito rápido e atropelado&quot;, explanation: &quot;Ansiedade, medo de ser interrompido ou hábito criado em ambientes onde precisava “disputar espaço” para falar.&quot; },
+            { behavior: &quot;Ri em momentos sérios&quot;, explanation: &quot;Pode ser um mecanismo de defesa contra situações desconfortáveis ou aprendizado de disfarçar emoções para evitar críticas.&quot; },
+            { behavior: &quot;Não gosta de receber elogios&quot;, explanation: &quot;Baixa autoestima, convivência com críticas constantes ou dificuldade em confiar no que os outros dizem.&quot; },
+            { behavior: &quot;Interrompe os outros o tempo todo&quot;, explanation: &quot;Necessidade de se impor por ter crescido sem voz ativa, insegurança disfarçada ou impulsividade.&quot; },
+            { behavior: &quot;Fica mexendo nos dedos, cabelo ou objetos o tempo todo&quot;, explanation: &quot;Ansiedade, nervosismo, ou hábito criado para se sentir seguro.&quot; },
+            { behavior: &quot;Tem mania de agradar todo mundo&quot;, explanation: &quot;Medo de rejeição, traumas de abandono ou ambiente onde era recompensado apenas quando fazia a vontade dos outros.&quot; },
+            { behavior: &quot;Explode por coisas pequenas&quot;, explanation: &quot;Acúmulo de estresse, frustração antiga não resolvida ou convivência com explosões de raiva na infância.&quot; },
+            { behavior: &quot;Prefere ficar sozinho na maior parte do tempo&quot;, explanation: &quot;Pode ser introversão natural, mas também pode indicar medo de intimidade ou experiências de decepção.&quot; },
+            { behavior: &quot;Dorme demais&quot;, explanation: &quot;Fuga de problemas, depressão, cansaço mental ou hábito criado em momentos de tristeza.&quot; },
+            { behavior: &quot;Sempre precisa estar fazendo algo&quot;, explanation: &quot;Ansiedade, dificuldade em lidar com o silêncio, medo de parar e encarar pensamentos.&quot; },
+            { behavior: &quot;Se fecha totalmente quando está triste&quot;, explanation: &quot;Aprendizado de que mostrar vulnerabilidade não é seguro.&quot; },
+            { behavior: &quot;Faz piada sobre si mesmo o tempo todo&quot;, explanation: &quot;Forma de se proteger de críticas externas ou baixa autoestima disfarçada.&quot; },
+            { behavior: &quot;Não consegue dizer “não”&quot;, explanation: &quot;Medo de conflito, necessidade de aceitação, experiências onde dizer “não” gerava punição.&quot; },
+            { behavior: &quot;Observa demais o ambiente&quot;, explanation: &quot;Hiper-vigilância aprendida por viver em lugares ou situações instáveis.&quot; },
+            { behavior: &quot;Evita lugares movimentados&quot;, explanation: &quot;Sensibilidade sensorial ou experiências ruins com aglomerações.&quot; },
+            { behavior: &quot;Compra coisas sem necessidade&quot;, explanation: &quot;Tentativa de preencher um vazio emocional ou buscar dopamina rápida.&quot; },
+            { behavior: &quot;Se assusta fácil com barulhos&quot;, explanation: &quot;Sistema de alerta muito sensível, às vezes resultado de viver em ambiente perigoso ou instável.&quot; },
+            { behavior: &quot;Fala pouco e ouve muito&quot;, explanation: &quot;Pode ser sinal de observação natural, mas também de medo de ser julgado.&quot; },
+            { behavior: &quot;Está sempre competindo, mesmo sem precisar&quot;, explanation: &quot;Necessidade de provar valor, possivelmente por crescer em ambiente comparativo.&quot; },
+            { behavior: &quot;Tem dificuldade de confiar&quot;, explanation: &quot;Resultado de traições, mentiras ou decepções passadas.&quot; },
+            { behavior: &quot;Posta demais nas redes sociais sobre a própria vida&quot;, explanation: &quot;Necessidade de validação ou de mostrar que está bem, mesmo que não esteja.&quot; },
+            { behavior: &quot;Nunca aceita ajuda&quot;, explanation: &quot;Medo de parecer fraco, experiências onde confiar foi perigoso ou necessidade de independência exagerada.&quot; },
+            { behavior: &quot;Controla tudo e todos&quot;, explanation: &quot;Insegurança, medo de perder o controle ou convivência com situações caóticas.&quot; },
+            { behavior: &quot;Faz drama por coisas pequenas&quot;, explanation: &quot;Carência de atenção ou aprendizado de que exagerar trazia mais cuidado dos outros.&quot; },
+            { behavior: &quot;Sempre precisa estar certo&quot;, explanation: &quot;Insegurança profunda disfarçada de autoridade.&quot; },
+            { behavior: &quot;Se fecha totalmente após brigar com alguém&quot;, explanation: &quot;Dificuldade em lidar com o conflito e medo de perder vínculos.&quot; },
+            { behavior: &quot;Tem mania de se comparar&quot;, explanation: &quot;Autoestima baixa alimentada por críticas ou comparações desde cedo.&quot; },
+            { behavior: &quot;Desvia assunto quando é sobre sentimentos&quot;, explanation: &quot;Desconforto com vulnerabilidade, possivelmente aprendido com familiares frios emocionalmente.&quot; },
+            { behavior: &quot;Guarda rancor por muito tempo&quot;, explanation: &quot;Dificuldade de processar emoções e experiências de injustiça.&quot; },
+            { behavior: &quot;Se desculpa o tempo todo&quot;, explanation: &quot;Medo de desagradar ou hábito vindo de ambientes onde era culpado sem motivo.&quot; },
+            { behavior: &quot;Morde unhas&quot;, explanation: &quot;Ansiedade, estresse ou hábito criado na infância para se acalmar.&quot; },
+            { behavior: &quot;Come rápido demais&quot;, explanation: &quot;Ansiedade, medo de que falte ou hábito criado em situações de pressa constante.&quot; },
+            { behavior: &quot;Evita falar sobre o passado&quot;, explanation: &quot;Dores não resolvidas, vergonha ou medo de julgamento.&quot; },
+            { behavior: &quot;Se irrita com sons pequenos&quot;, explanation: &quot;Sensibilidade sensorial, estresse acumulado ou experiências onde ruídos estavam ligados a perigo.&quot; },
+            { behavior: &quot;Precisa se justificar para tudo&quot;, explanation: &quot;Insegurança, medo de ser mal interpretado ou ambiente crítico.&quot; },
+            { behavior: &quot;Troca de assunto rápido quando é algo pessoal&quot;, explanation: &quot;Medo de exposição emocional.&quot; },
+            { behavior: &quot;Tem dificuldade em manter relacionamentos&quot;, explanation: &quot;Medo de intimidade, ciúmes excessivos ou repetição de padrões familiares.&quot; }
+        ];
+
+        const accordionContainer = document.getElementById('accordion-container');
+
+        data.forEach((item, index) =&gt; {
+            const accordionItem = document.createElement('div');
+            accordionItem.className = 'accordion-item';
+
+            const headerButton = document.createElement('button');
+            headerButton.className = 'accordion-header';
+            headerButton.setAttribute('aria-expanded', 'false');
+            headerButton.setAttribute('aria-controls', `content-${index}`);
+            headerButton.innerHTML = `
+                &lt;span&gt;${item.behavior}&lt;/span&gt;
+                &lt;svg class=&quot;w-6 h-6&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M19 9l-7 7-7-7&quot;&gt;&lt;/path&gt;
+                &lt;/svg&gt;
+            `;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.id = `content-${index}`;
+            contentDiv.className = 'accordion-content';
+            contentDiv.setAttribute('aria-hidden', 'true');
+            contentDiv.innerHTML = `&lt;p class=&quot;py-2&quot;&gt;${item.explanation}&lt;/p&gt;`;
+
+            headerButton.addEventListener('click', () =&gt; {
+                const isOpen = headerButton.classList.contains('active');
+
+                // Close all other open items
+                document.querySelectorAll('.accordion-header.active').forEach(openHeader =&gt; {
+                    if (openHeader !== headerButton) {
+                        openHeader.classList.remove('active');
+                        const openContent = document.getElementById(openHeader.getAttribute('aria-controls'));
+                        openContent.classList.remove('open');
+                        openContent.setAttribute('aria-hidden', 'true');
+                        openHeader.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    headerButton.classList.remove('active');
+                    contentDiv.classList.remove('open');
+                    contentDiv.setAttribute('aria-hidden', 'true');
+                    headerButton.setAttribute('aria-expanded', 'false');
+                } else {
+                    headerButton.classList.add('active');
+                    contentDiv.classList.add('open');
+                    contentDiv.setAttribute('aria-hidden', 'false');
+                    headerButton.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            accordionItem.appendChild(headerButton);
+            accordionItem.appendChild(contentDiv);
+            accordionContainer.appendChild(accordionItem);
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
